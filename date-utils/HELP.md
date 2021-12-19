@@ -1,9 +1,4 @@
-# Read Me First
-The following was discovered as part of building this project:
 
-* The original package name 'com.springcloud.ssadhuhanv2.date-utils' is invalid and this project uses 'com.springcloud.ssadhuhanv2.dateutils' instead.
-
-# Getting Started
 * Run Spring Boot in specific port: https://www.baeldung.com/spring-boot-change-port
 
 
@@ -16,6 +11,27 @@ The following was discovered as part of building this project:
 
           git pull origin main --allow-unrelated-histories
           git push -u origin main
+
+* Build the docker image:
+
+
+    mvn spring-boot:build-image -DskipTests
+
+* Remove the docker image:
+
+
+    docker rmi ssadhukhanv2/human-records
+
+* Run docker image as container:
+
+
+    docker run -d -p 9001:9001 ssadhukhanv2/date-utils:0.0.1-SNAPSHOT
+
+
+* Stop docker image(infallible_euler is the container name which is supplied by docker)
+
+
+    docker stop infallible_euler
 
 ### Reference Documentation
 For further reference, please consider the following sections:
