@@ -10,6 +10,13 @@ The following was discovered as part of building this project:
     java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar --server.port=9002
     java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar -Dserver.port=9002 
 
+* Ran into below error while committing changes from local repo to github. Below commands saved the day:
+    * https://stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch
+    * https://stackoverflow.com/questions/47403358/fatal-in-unpopulated-submodule
+
+          git pull origin main --allow-unrelated-histories
+          git push -u origin main
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 

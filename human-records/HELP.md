@@ -2,7 +2,18 @@
 ### Reference Documentation
 For further reference, please consider the following sections:
 * Sleuth : https://spring.io/projects/spring-cloud-sleuth
+* Run Spring Boot in specific port: https://www.baeldung.com/spring-boot-change-port
 
+
+    java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar --server.port=9002
+    java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar -Dserver.port=9002 
+
+* Ran into below error while committing changes from local repo to github. Below commands saved the day:
+    * https://stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch
+    * https://stackoverflow.com/questions/47403358/fatal-in-unpopulated-submodule
+
+          git pull origin main --allow-unrelated-histories
+          git push -u origin main
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.6.1/maven-plugin/reference/html/)

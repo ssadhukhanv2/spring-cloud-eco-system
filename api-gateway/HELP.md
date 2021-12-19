@@ -4,6 +4,13 @@ The following was discovered as part of building this project:
 * The original package name 'com.springcloud.ssadhuhanv2.api-gateway' is invalid and this project uses 'com.springcloud.ssadhuhanv2.apigateway' instead.
 
 # Getting Started
+* Ran into below error while committing changes from local repo to github. Below commands saved the day:
+    * https://stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch
+    * https://stackoverflow.com/questions/47403358/fatal-in-unpopulated-submodule
+
+          git pull origin main --allow-unrelated-histories
+          git push -u origin main
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:
