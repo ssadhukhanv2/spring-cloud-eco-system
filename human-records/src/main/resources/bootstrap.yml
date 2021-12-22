@@ -9,7 +9,7 @@ spring:
   application:
     name: human-records
   profiles:
-    active: prod
+    active: dev
   cloud:
     config:
       uri: http://localhost:8071/
