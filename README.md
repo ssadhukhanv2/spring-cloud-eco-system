@@ -4,6 +4,8 @@
 * Create the docker image and the associated roles:
 
 
+
+
     docker run --detach --name postgresdb -p 5432:5432 --env POSTGRES_PASSWORD=password postgres
     docker exec --interactive --tty postgresdb /bin/bash
         psql -h localhost -p 5432 -d postgres -U postgres
