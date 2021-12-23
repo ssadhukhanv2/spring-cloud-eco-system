@@ -1,5 +1,11 @@
+* Run from command line
+
+
+        java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer-a
+        java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer-b
+        java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer-c
+
 # Read Me First
-The following was discovered as part of building this project:
 
 * The original package name 'com.springcloud.ssadhuhanv2.naming-server' is invalid and this project uses 'com.springcloud.ssadhuhanv2.namingserver' instead.
 
