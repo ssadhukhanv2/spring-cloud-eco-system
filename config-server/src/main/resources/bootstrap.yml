@@ -3,15 +3,23 @@ spring:
     name: config-server
   profiles:
     include:
-      - native
+      git, native #vault Vault Configuration Removed, need to check later
   cloud:
     config:
       server:
+#        vault configuration is not working so commenting the code for now. Will check later
+#        vault:
+#          port: 8200
+#          host: 127.0.0.1
+#          kvVersion: 2
+#          order: 3
+        git:
+          uri: https://github.com/ssadhukhanv2/config-repo.git
+          searchPaths: spring-cloud-eco-system
+          order: 1
         native:
           search-locations: classpath:/config
-        #git:
-         #   uri: https://github.com/ihuaylupo/config.git
-         #   searchPaths: licensingservice
+          order: 2
     
 server:
   port: 8071
