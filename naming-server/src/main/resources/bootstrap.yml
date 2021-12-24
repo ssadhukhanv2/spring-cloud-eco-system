@@ -6,3 +6,9 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888/
+
+#  This is not needed as ribbon is deprecated and not included
+#  https://stackoverflow.com/questions/65469735/versions-spring-boot-spring-cloud-ribbon-not-working
+#    loadbalancer:
+#      ribbon:
+#        enabled: false
