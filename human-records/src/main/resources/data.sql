@@ -1,1 +1,2 @@
-INSERT INTO human (id, birth_day, cell_phone_number, email, facebook_url, full_name, linked_in_url, name) VALUES (100, '29/04/1998','0797106169','shershah@indianarmy.com','facebook.com','Sher Singh','linked_in_url.com','Sherah');
+--INSERT INTO human (id, birth_day, cell_phone_number, email, facebook_url, full_name, linked_in_url, name) VALUES (100, '29/04/1998','0797106169','shershah@indianarmy.com','facebook.com','Sher Singh','linked_in_url.com','Sherah');
+select * from human;
