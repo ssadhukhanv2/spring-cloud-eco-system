@@ -9,6 +9,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 public class DateUtilsApplication {
 
 	// http://localhost:9001/age?date=26/06/1992
+	// http://localhost:9001/age?date=1992/06/26&formatter=YYYY/MM/DD
 	public static void main(String[] args) {
 		SpringApplication.run(DateUtilsApplication.class, args);
 	}

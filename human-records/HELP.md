@@ -5,6 +5,8 @@
 
 
     java -jar .\target\human-records-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+    java -jar .\target\human-records-0.0.1-SNAPSHOT.jar --spring.profiles.active=dev
+    java -jar .\target\human-records-0.0.1-SNAPSHOT.jar --spring.profiles.active=qa
     java -jar target/licensing-service-0.0.1-SNAPSHOT.jar -Dspring.cloud.config.uri=http://localhost:8071 -Dspring.profiles.active=dev
 
 ### Reference Documentation

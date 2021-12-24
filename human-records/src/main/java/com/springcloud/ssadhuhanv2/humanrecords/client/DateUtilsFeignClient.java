@@ -1,6 +1,7 @@
-package com.springcloud.ssadhuhanv2.humanrecords;
+package com.springcloud.ssadhuhanv2.humanrecords.client;
 
 
+import com.springcloud.ssadhuhanv2.humanrecords.Age;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 // they are automatically load balanced by feign
 // using Spring Cloud Load Balancer
 @FeignClient(name = "date-utils")
-public interface DateUtilsProxy {
+public interface DateUtilsFeignClient {
     @GetMapping("/age")
     public @ResponseBody
     Age getDifferenceWithSystemDate(@RequestParam(name = "date") String stringDate,

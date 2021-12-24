@@ -1,6 +1,8 @@
 package com.springcloud.ssadhuhanv2.humanrecords;
 
 
+import com.springcloud.ssadhuhanv2.humanrecords.client.DateUtilsFeignClient;
+import com.springcloud.ssadhuhanv2.humanrecords.service.HumanService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.EntityModel;
@@ -9,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -23,18 +26,23 @@ import java.util.NoSuchElementException;
 @RestController
 public class HumanController {
 
-    @Autowired
-    RestTemplate restTemplate;
-    @Autowired
-    HumanRepo humanRepo;
+//    @Autowired
+//    RestTemplate restTemplate;
+//    @Autowired
+//    HumanRepo humanRepo;
+//
+//    // Proxy Feign Client
+//    @Autowired
+//    DateUtilsFeignClient dateUtilsFeignProxy;
+//
 
-    // Proxy Feign Client
     @Autowired
-    DateUtilsProxy dateUtilsFeignProxy;
+    HumanService humanService;
+
 
     @GetMapping("/human")
     public List<Human> getAllHuman() {
-        return humanRepo.findAll();
+        return humanService.getAllHumans();
     }
 
 
@@ -42,7 +50,7 @@ public class HumanController {
     public ResponseEntity<EntityModel<Human>> getHuman(@PathVariable(name = "humanId") Long id) {
         try {
             log.info("Id of Human: {}", id);
-            Human human = humanRepo.findById(id).get();
+            Human human = humanService.getHumanById(id);
             log.info("Human Found: {}", human);
             //Add a link to all Humans
             EntityModel<Human> resource = EntityModel.of(human);
@@ -58,46 +66,16 @@ public class HumanController {
         }
     }
 
-    //    @GetMapping("/human/{humanId}/age")
-//    public ResponseEntity<EntityModel<Age>> getAgeOfHuman(@PathVariable(name = "humanId") Long id) {
-//        try {
-//            Human human = humanRepo.findById(id).get();
-//
-//            // how to send request param in resttemplate
-//            //https://stackoverflow.com/questions/8297215/spring-resttemplate-get-with-parameters
-//            String uriTemplate = UriComponentsBuilder.fromHttpUrl("http://localhost:9001/age").queryParam("date", "{birthDay}").encode().toUriString();
-//            Map<String, String> params = new HashMap<>();
-//            params.put("birthDay", human.getBirthDay());
-//            Age age = restTemplate.getForObject(uriTemplate, Age.class, params);
-//
-//            //Add a link to the Human
-//
-//            EntityModel<Age> resource = EntityModel.of(age);
-//            WebMvcLinkBuilder webMvcLinkBuilder =
-//                    WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass())
-//                            .getHuman(id));
-//            resource.add(webMvcLinkBuilder.withRel("human"));
-//
-//            return new ResponseEntity<>(resource, HttpStatus.CREATED);
-//        } catch (NoSuchElementException e) {
-//            //Do something
-//            throw new RuntimeException();
-//        }
-//    }
+    //http://localhost:9999/human/100/age?client=discovery
     @GetMapping("/human/{humanId}/age")
-    public ResponseEntity<EntityModel<Age>> getAgeOfHuman(@PathVariable(name = "humanId") Long id) {
+    public ResponseEntity<EntityModel<Age>> getAgeOfHuman(@PathVariable(name = "humanId") Long id, @RequestParam(required = false, name = "client") String clientType) {
+        if (clientType == null || clientType.isEmpty()) {
+            clientType = HumanRecordsClientConstant.FEIGN;
+        }
         try {
-            log.info("Id of Human: {}", id);
-            Human human = humanRepo.findById(id).get();
-            log.info("Human Found: {}", human);
-            //Using Feign Client to call instead of Rest Template
-
-            Age age = dateUtilsFeignProxy.getDifferenceWithSystemDate(human.getBirthDay(), null);
-
+            Age age = humanService.getHumanAgeById(id, clientType);
             log.info("Age of Human: {}", age);
-
             //Add a link to the Human
-
             EntityModel<Age> resource = EntityModel.of(age);
             WebMvcLinkBuilder webMvcLinkBuilder =
                     WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass())
