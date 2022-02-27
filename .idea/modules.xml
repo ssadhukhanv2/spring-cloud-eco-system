@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/date-utils/date-utils.iml" filepath="$PROJECT_DIR$/date-utils/date-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/human-records/human-records.iml" filepath="$PROJECT_DIR$/human-records/human-records.iml" />
+      <module fileurl="file://$PROJECT_DIR$/naming-server/naming-server.iml" filepath="$PROJECT_DIR$/naming-server/naming-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/spring-cloud-eco-system.iml" filepath="$PROJECT_DIR$/.idea/spring-cloud-eco-system.iml" />
+    </modules>
+  </component>
+</project>

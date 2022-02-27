@@ -1,9 +1,9 @@
 * Run from command line
 
 
-        java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=instance-a
-        java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=instance-b
-        java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=instance-c
+        java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar --spring.profiles.active=instance-a
+        java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar --spring.profiles.active=instance-b
+        java -jar .\target\date-utils-0.0.1-SNAPSHOT.jar --spring.profiles.active=instance-c
 
 * Run Spring Boot in specific port: https://www.baeldung.com/spring-boot-change-port
 

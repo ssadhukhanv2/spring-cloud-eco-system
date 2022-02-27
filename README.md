@@ -21,7 +21,7 @@
                 grant all privileges on database qa_db  to qa_user;
 
 
-* DNS Entries required for naming-server if all 3 instances are running on the same host 
+* DNS Entries required for "naming-server" if all 3 instances are running on the same host 
 in ```C:\Windows\System32\drivers\etc\hosts.ics``` file
 
 

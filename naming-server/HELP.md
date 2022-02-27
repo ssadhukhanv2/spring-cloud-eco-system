@@ -1,9 +1,19 @@
+
 * Run from command line
 
 
         java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer-a
         java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer-b
         java -jar .\target\naming-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer-c
+
+
+* DNS Entries required for "naming-server" if all 3 instances are running on the same host
+  in ```C:\Windows\System32\drivers\etc\hosts.ics``` file
+
+
+        127.0.0.1 eureka-server-peer-a
+        127.0.0.1 eureka-server-peer-b
+        127.0.0.1 eureka-server-peer-c
 
 # Read Me First
 

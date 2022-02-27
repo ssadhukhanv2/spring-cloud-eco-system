@@ -1,4 +1,7 @@
 ### Reference Documentation
+* Url to fetch configuration:
+  http://localhost:8888/date-utils/instance-a
+
 * spring-cloud-config documentation: 
   * https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html
   * https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server

@@ -17,6 +17,13 @@ import java.util.Map;
 @Component
 public class DateUtilsDiscoveryClient {
 
+
+    /*
+    * The Spring Discovery Client offers the lowest level of access to
+    * the Load Balancer and the services registered within it.
+    * Using the Discovery Client, you can query for all the services
+    * registered with the Spring Cloud Load Balancer client and their corresponding URLs.
+    * */
     @Autowired
     private DiscoveryClient discoveryClient;
 
